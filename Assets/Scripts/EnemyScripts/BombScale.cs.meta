@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9931c98f1520ce940abc45e0f334d743
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - deathParticlesPrefab: {instanceID: 0}
+  - explosionBigPrefab: {instanceID: 0}
+  - gameManager: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - explosionSound: {fileID: 8300000, guid: dd500b75f63aa5b49b16e0e258435d50, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
