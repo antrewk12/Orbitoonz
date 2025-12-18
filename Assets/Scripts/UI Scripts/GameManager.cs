@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    // Manages overall game state, UI, score, audio, and scene restarting.
+
     // Singleton Instance
     public static GameManager instance;
 
@@ -30,16 +32,10 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        // Ensure only one instance of GameManager exists
         if (instance == null)
-        {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Keep GameManager across scenes
-        }
         else
-        {
-            Destroy(gameObject);  // Destroy duplicate GameManager objects
-        }
+            Destroy(gameObject);
     }
 
     void Start()
@@ -71,7 +67,7 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
     }
 
-    // Call this when the gameplay starts again (e.g., restarting the level)
+    // Call this when the gameplay starts again 
     public void PlayGamePlayMusic()
     {
         UpdateBackgroundMusic(gamePlayMusic);  // Switch back to the gameplay music
@@ -105,6 +101,8 @@ public class GameManager : MonoBehaviour
 
     public void TriggerGameOver()
     {
+        if (isGameOver) return;
+
         isGameOver = true;
         DisplayGameOver();
         PlayGameOverMusic();

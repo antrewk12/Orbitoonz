@@ -1,17 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float minSpeed = 2f;
-    public float maxSpeed = 4f;
+    [SerializeField] float minSpeed = 2f;
+    [SerializeField] float maxSpeed = 4f;
+    [SerializeField] float moveSpeed;
     private PlayerController playerController;
     public GameObject deathParticlesPrefab;
 
     // Start is called before the first frame update
     private void Start()
     {
+        moveSpeed = Random.Range(minSpeed, maxSpeed);
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
 
     }
@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * Time.deltaTime * Random.Range(minSpeed, maxSpeed));
+        transform.Translate(moveSpeed * Time.deltaTime * Vector3.down);
 
         if(transform.position.y < -6f)
         {
@@ -46,8 +46,10 @@ public class Enemy : MonoBehaviour
 
             // Instantiate death particles
             GameObject particles = Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+
             // Get the duration of the particle system
             float particleDuration = particles.GetComponent<ParticleSystem>().main.duration;
+
             // Destroy the particle system after its duration
             Destroy(particles, particleDuration);
         }

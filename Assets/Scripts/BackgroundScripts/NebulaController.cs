@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class NebulaController : MonoBehaviour
 {
+    /// Controls nebula movement and animated color transitions using a particle system.
+
     public ParticleSystem nebulaParticleSystem;
-    public float movementSpeed = 1f;
-    public float movementRange = 7f;
+    [SerializeField] float movementSpeed = 1f;
+    [SerializeField] float movementRange = 7f;
     private Vector3 targetPosition;
-    public float fixedYPosition = 4f;
-    public float fixedZPosition = -1f;
-    public float colorChangingSpeed = 0.2f;
+    [SerializeField] float fixedYPosition = 4f;
+    [SerializeField] float fixedZPosition = -1f;
+    [SerializeField] float colorChangingSpeed = 0.2f;
     private ParticleSystem.ColorOverLifetimeModule colorOverLifetime;
     private Gradient grad;
     private Color[] colors = { Color.red, Color.cyan, Color.green, Color.blue};
@@ -23,7 +25,7 @@ public class NebulaController : MonoBehaviour
             nebulaParticleSystem = GetComponent<ParticleSystem>();
         }
 
-        colorOverLifetime = nebulaParticleSystem.colorOverLifetime;
+        colorOverLifetime = nebulaParticleSystem.colorOverLifetime; //cached
 
         // Initialize the gradient
         grad = new Gradient();
@@ -36,7 +38,7 @@ public class NebulaController : MonoBehaviour
 
     void Update()
     {
-        // Move towards the target position along the x-axis
+        // Move towards the target position along the Xaxis
         Vector3 currentPosition = transform.position;
         Vector3 newPosition = new Vector3(
             Mathf.MoveTowards(currentPosition.x, targetPosition.x, movementSpeed * Time.deltaTime),
@@ -87,7 +89,5 @@ public class NebulaController : MonoBehaviour
             fixedYPosition,
             fixedZPosition);
 
-        // Debug log to track the target position
-        Debug.Log($"New target position set: {targetPosition}");
     }
 }

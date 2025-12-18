@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpaceShip : MonoBehaviour
 {
-
+    //Controls enemy spaceship Collisions
     
     public GameObject deathParticlesPrefab;
     private PlayerController playerController;
@@ -42,8 +40,10 @@ public class EnemySpaceShip : MonoBehaviour
 
                 // Instantiate death particles
                 GameObject particles = Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+
                 // Get the duration of the particle system
                 float particleDuration = particles.GetComponent<ParticleSystem>().main.duration;
+
                 // Destroy the particle system after its duration
                 Destroy(particles, particleDuration);
 
@@ -66,8 +66,10 @@ public class EnemySpaceShip : MonoBehaviour
 
             // Instantiate death particles
             GameObject particles = Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+
             // Get the duration of the particle system
             float particleDuration = particles.GetComponent<ParticleSystem>().main.duration;
+
             // Destroy the particle system after its duration
             Destroy(particles, particleDuration);
 

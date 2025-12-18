@@ -3,18 +3,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Handles player movement, shooting, lives, and power-up effects.
+
     // Movement Settings
-    public float speed = 2.5f;
-    public float rightBoundary = 11.5f;
-    public float leftBoundary = -11.2f;
-    public float upperBoundary = 6.5f;
-    public float lowerBoundary = -4.5f;
+    [SerializeField] float speed = 2.5f;
+    [SerializeField] float rightBoundary = 11.5f;
+    [SerializeField] float leftBoundary = -11.2f;
+    [SerializeField] float upperBoundary = 6.5f;
+    [SerializeField] float lowerBoundary = -4.5f;
 
     // Shooting Settings
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] private GameObject tripleShotPrefab;
     [SerializeField] private GameObject fiveShotPrefab;
-    public float startingFire = 1.2f;
+    [SerializeField] float startingFire = 1.2f;
 
     public bool tripleShotActive = false;
     public bool fiveShotActive = false;
@@ -76,6 +78,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(movement);
 
         // Clamp the player's position within the boundaries
+
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, leftBoundary, rightBoundary),
             Mathf.Clamp(transform.position.y, lowerBoundary, upperBoundary),
@@ -171,7 +174,7 @@ public class PlayerController : MonoBehaviour
         fiveShotActive = true; // Activate five shot
         audioSource.PlayOneShot(powerUpSound);
 
-        // Reset the five-shot coroutine to ensure the timer restarts
+        // Reset the five-shot coroutine 
         ResetFiveShotCoroutine();
     }
 
@@ -183,14 +186,14 @@ public class PlayerController : MonoBehaviour
 
     public void ResetFiveShotCoroutine()
     {
-        // Stop the existing coroutine if it's running
+        // Stop the existing coroutine if its running
         if (fiveShotCoroutine != null)
         {
             StopCoroutine(fiveShotCoroutine);
-            fiveShotCoroutine = null; // Reset the coroutine reference
+            fiveShotCoroutine = null; // Reset the coroutine 
         }
 
-        // Start a new coroutine for the five-shot power-up duration
+        // Start a new coroutine for the fiveShot power-up duration
         fiveShotCoroutine = StartCoroutine(DeactivateFiveShot());
     }
 
@@ -218,7 +221,7 @@ public class PlayerController : MonoBehaviour
     {
         for (int i = 0; i < gameManager.livesImage.Length; i++)
         {
-            gameManager.livesImage[i].enabled = i < currentLives; // Show or hide lives
+            gameManager.livesImage[i].enabled = i < currentLives; // Show / hide lives
         }
     }
 }

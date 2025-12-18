@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
+    //handles the power up Upgrades
+
     public float speed = 3f;
     [SerializeField]
     private int powerUpId;

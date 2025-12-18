@@ -119,7 +119,7 @@ public class SpawnManager : MonoBehaviour
             }
 
             currentWave++;
-            yield return new WaitForSeconds(timeBetweenWaves + 7f); // Longer wait between waves
+            yield return new WaitForSeconds(timeBetweenWaves + 7f); //  wait between waves
         }
     }
 
@@ -154,7 +154,7 @@ public class SpawnManager : MonoBehaviour
         while (isPlayerAlive)
         {
             Vector3 bombPos = new Vector3(Random.Range(-9f, 9f), Random.Range(1f, 6f), 0);
-            GameObject bombObject = poolManager.GetObjectFromPool(gameManager);
+            GameObject bombObject = poolManager.GetObjectFromPool();
             if (bombObject != null)
             {
                 bombObject.transform.position = bombPos;
@@ -211,7 +211,7 @@ public class SpawnManager : MonoBehaviour
             {
                 if (grid[i, j] == 1)
                 {
-                    Vector3 position = new Vector3(startX + j, startY + i, 0);
+                    Vector3 position = new(startX + j, startY + i, 0);
                     Instantiate(spaceshipPrefab, position, Quaternion.identity);
                 }
             }

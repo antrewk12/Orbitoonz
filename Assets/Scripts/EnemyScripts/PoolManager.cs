@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
+    //object pooling for bomb spawning
+
     public GameObject bombPrefab;
     public int poolSize = 3;
 
@@ -24,7 +27,7 @@ public class PoolManager : MonoBehaviour
 
         }
     }
-    public GameObject GetObjectFromPool(GameManager managerGame)
+    public GameObject GetObjectFromPool()
     {
         foreach (GameObject obj in pool)
         {

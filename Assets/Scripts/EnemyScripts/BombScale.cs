@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BombScale : MonoBehaviour
 {
+    //Handles bomb scaling, rotation and destruction.
+
     // Scaling Settings
     [SerializeField] private float scaleFactor = 1.1f;  // Scaling factor
     [SerializeField] private float scaleInterval = 1f;  // Time between scaling
@@ -46,7 +48,7 @@ public class BombScale : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
-        transform.localPosition = originalPosition;  // Ensure position is reset
+        transform.localPosition = originalPosition;  //  position is reset
         transform.localScale = Vector3.one;  // Reset scale
     }
 
