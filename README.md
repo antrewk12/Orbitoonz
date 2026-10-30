@@ -3,6 +3,10 @@
 A 2D arcade space shooter, and my first complete game in Unity.
 
 **▶ [Play it in your browser on itch.io](https://antreask12.itch.io/orbitoonz)** (WebGL, no download)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c0331a63-e421-4e0e-90d0-fda2783701da" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c74ac2c3-43c6-44f7-9225-d0a0b7b34c7e" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/80081cf9-4b10-4aff-b25d-f47b00a56900" />
+
 
 ---
 
@@ -48,13 +52,13 @@ All gameplay code is in [`Assets/Scripts`](Assets/Scripts) (Unity 2021.3, C#).
 
 ## Looking back
 
-This was the project where I learned Unity's fundamentals, and I've deliberately kept the code exactly as I originally wrote it. I've since moved on to 3D work, and looking back I can spot mistakes I'd now catch straight away:
+This was the project where I learned Unity's fundamentals. I've since moved on to 3D work, and looking back I can spot mistakes like:
 
 - **Asteroids are moved by two scripts at once:** `Enemy.cs` moves them, and `SpawnManager` also moves every object tagged `Enemy`.
 - **Power-up timers aren't tracked:** picking up a shield while one is active lets the older timer switch off the new shield early.
 - **Laser spreads:** when one laser of a triple/five shot hits, the whole spread is destroyed, and a laser without a parent can cause a null reference.
 - **Bomb growth timing** uses `Time.time % interval`, which can skip or repeat steps depending on frame rate.
-- `FindGameObjectsWithTag` runs every frame, and `GameManager` polls the player's lives instead of reacting to an event.
+- `FindGameObjectsWithTag` runs every frame.
 
 If I built it again today, I would:
 
@@ -72,7 +76,7 @@ If I built it again today, I would:
    - [2D Space Kit](https://assetstore.unity.com/search#q=2D%20Space%20Kit) (backgrounds and effects)
    - [2D Casual UI](https://assetstore.unity.com/search#q=2D%20Casual%20UI) (interface sprites)
 
-   They aren't included in this repository because their license doesn't allow redistributing the raw files. Without them, some sprites will appear as missing; after importing, Unity reconnects them automatically.
+   They aren't included in this repository because their license doesn't allow redistributing. Without them, some sprites will appear as missing; after importing, Unity reconnects them automatically.
 3. Open `Assets/Scenes/MainMenu.unity` and press Play.
 
 ---
@@ -83,4 +87,3 @@ If I built it again today, I would:
 - **Music and sound effects**: [Pixabay](https://pixabay.com/music/), used under the Pixabay Content License.
 
 Game design and code by **Andrewk12** ([GitHub](https://github.com/antrewk12) · [itch.io](https://antreask12.itch.io)).
-The code is released under the MIT License (see [`LICENSE`](LICENSE)); third-party assets keep their own licenses.
