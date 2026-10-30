@@ -97,3 +97,10 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Third-party Unity Asset Store packs (Standard EULA, not redistributable).
+# Import them from the Asset Store to open the project. See README > Credits.
+/Assets/2D Space Kit/
+/Assets/2D Space Kit.meta
+/Assets/2D Casual UI/
+/Assets/2D Casual UI.meta
