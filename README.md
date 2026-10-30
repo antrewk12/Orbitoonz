@@ -80,6 +80,7 @@ If I built it again today, I would:
 ## Credits
 
 - **2D Space Kit** and **2D Casual UI**: Unity Asset Store, used under the Standard Unity Asset Store EULA.
+- **Music and sound effects**: [Pixabay](https://pixabay.com/music/), used under the Pixabay Content License.
 
 Game design and code by **Andrewk12** ([GitHub](https://github.com/antrewk12) · [itch.io](https://antreask12.itch.io)).
 The code is released under the MIT License (see [`LICENSE`](LICENSE)); third-party assets keep their own licenses.
